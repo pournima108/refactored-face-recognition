@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="Description" content="Face tracking demo in JavaScript"/>
+        <meta property="og:image" content="http://kdzwinel.github.io/JS-face-tracking-demo/img/step1.png"/>
+        <link rel="image_src" href="http://kdzwinel.github.io/JS-face-tracking-demo/img/step1.png"/>
+    
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <script language='text/javascript' src="js/main.js"></script>
+
+        <style>
+            .buttonSubmit {
+                display: none;
+            }
+        </style>
+    
+        <script>
+           function take_snapshot(image) {
+                console.log("Inside take_snapshot");
+                console.log(image);
+
+                var Image1 = image.replace(/^data\:image\/\w+\;base64\,/, '');
+                var src = "data:image/jpeg;base64,";
+                src += Image1;
+                image.src = src;
+                console.log(Image1);
+                document.getElementById("myImage").value = src;
+                console.log(myImage);
+                document.getElementById('submitPhoto').click();  
+            }
+        </script>
+    
+       
+     </head>
+        <body class="step1" >
+                    <div class="container">
+                        <div class="alert alert-danger"><strong>Oops!</strong> <span></span></div>
+                        <div class="jumbotron">
+                            <div id="step1" onload="document.getElementById('myform').submit()">
+                                <h1><i class="glyphicon glyphicon-facetime-video"></i></h1>
+                    
+                                <p class="lead">
+                                    Make sure that your whole face is visible below.
+                                    <i class="glyphicon glyphicon-question-sign help" data-placement="bottom"
+                                       data-content="<img src='img/step1.png' />" data-html="true"></i>
+                                </p>
+                                
+                                <figure class="not-ready" >
+                                    <video  id="camera-stream" width="1080" autoplay></video>
+                                    <img id="snap">
+                                    <canvas id="yourCanvasID" width="1080" class="visible" ></canvas>
+                                    <canvas id="canvas2" width="1080" class="hidden"></canvas>
+                                </figure>
+                            </div>
+                    </div>
+                    </div>
+
+    <form id="myform" method="post" action="/upload" onsubmit="return take_snapshot()" >
+    <input type="hidden" id="myImage" name="myImage" value="AABC" />    
+    <input id="submitPhoto" class="buttonSubmit" type="submit"/> 
+</form>
+                    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+                    <script src="js/vendor/modernizr.min.js"></script>
+                    <script src="js/vendor/bootstrap.min.js"></script>
+                    <script src="js/vendor/tracking-min.js"></script>
+                    <script src="js/vendor/data/face-min.js"></script>
+                    <script src="js/vendor/gif.js"></script>
+                    <script src="js/vendor/gif.worker.js"></script>
+                    
+                    <script src="js/main.js"></script>
+    </body>
+    
+    
