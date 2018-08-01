@@ -9,31 +9,49 @@ var ap=require('../index.js');
 
 
 router.get('/', function(req, res) {
-    res.send("App Working!");
+  res.render('index');
   });
 
-  router.route('/api/v1/quotes')
+  // router.route('/api/v1/')
 //Route to specific url
+  // .get('/', (req, res) => {
+  //   res.render('index');
+  // })
 
-  .post('/enroll',function(req, res) {
-    var response = new methods().enrollfunction((error,response)=>{
-      if(error){
-        res.render('index',{
-          msg: 'Face not recognized. Please try again',
-          vis: 'visible'
-        })
-      }
-      else {
-        res.render('fillingConfirmation',{
-          details:element,
-          image:data,
-          date:today
-    })
-    }}); 
+  router.get('/getdata',(req,res)=>{
+    res.render('index_old')
   })
+
+  router.post('/enroll',function(req, res) {
+    var response = new methods().enrollfunction(req,res)
+    })   
+ 
   //Post the data 
+  router.post('/upload',function(req, res) {
+    // console.log("my body",req)
+    var response = new methods().recognizeFunction(req,res)
+  })
 
+  router.post('/detrain',function(req, res) {
+    var response = new methods().detrainFunction(req,res)
+  })
 
+  router.post('/response',function(req, res) {
+    var response = new methods().giveResponse(req,res) 
+  })
+
+  router.post('/smsHandler',function(req, res) {
+    var response = new methods().smsHandler(req,res) 
+  })
+
+  router.post('/otpHandler',function(req, res) {
+    var response = new methods().otpHandler(req,res)
+  
+  })
+
+  router.post('/fillData',function(req, res) {
+    var response = new methods().fillUserData(req,res)
+  })
 
 
 
