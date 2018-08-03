@@ -24,7 +24,7 @@ class kairos {
     }
 
     recognize(img,callback){
-        console.log("kairos api recognize function")
+        // console.log("kairos api recognize function")
         var options = {
             method: 'POST',
             url: 'https://api.kairos.com/recognize',
@@ -41,9 +41,6 @@ class kairos {
                 return callback(error);
             }
             else{
-                // callback =JSON.parse(body)
-                //  console.log("response",response)
-                //   console.log("body",JSON.parse(body))
                  callback(response);
             }
 

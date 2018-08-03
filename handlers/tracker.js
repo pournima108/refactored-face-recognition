@@ -31,12 +31,13 @@ class Tracker{
         
         fs.readFile("trace/trace.json",(err,fileData)=>{
            var defaulterList = JSON.parse(fileData.toString());
-        //    console.log(defaulterList);
+           console.log(defaulterList);
            defaulterList.push(data);
         //    console.log(defaulterList);
             fs.writeFile('trace/trace.json',JSON.stringify(defaulterList),(err)=>{
                 if(err){
                         console.log("error in writing defaulter list");
+                        console.log(err)
                     }else{
                         console.log("recorded");
                     }
@@ -46,7 +47,7 @@ class Tracker{
     }
 
 
-    filterRegularDefaulter(empid,callback){
+    filterRegularDefaulter(empId,callback){
 
         fs.readFile("trace/trace.json",(err,fileData)=>{
 
@@ -55,12 +56,14 @@ class Tracker{
                 callback(err,null);
             
             }else{
+                console.log("inside filter regular defaulter method")
 
                 var traceRecord=JSON.parse(fileData.toString());
+                console.log("traced recorde is",traceRecord)
                 
                 for(var ele=0; ele < traceRecord.length; ele++){
 
-                    if(empid== traceRecord[ele].empid){
+                    if(empId== traceRecord[ele].empId){
 
                         if(moment(moment(new Date)).diff(moment(traceRecord[ele].date, "DD.MM.YYYY"),"day")==1){
                             console.log("lost yesterday");

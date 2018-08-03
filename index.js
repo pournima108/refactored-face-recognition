@@ -12,8 +12,6 @@ require('dotenv').config()
 
 //Package Dependencies
 
-
-
 new checkDefaulter().createRegister();
 
 var route =require('./routes/routes');

@@ -32,12 +32,27 @@
                 document.getElementById("myImage").value = src;
                 console.log(myImage);
                 document.getElementById('submitPhoto').click();  
-            }
+            };
+
+        //    function init(){
+        //         var canvasW     = 1080;
+        //         var canvasH     = 1080;
+        //         var canvas = document.getElementById('yourCanvasID')
+        //         canvas.width = document.body.clientWidth; //document.width is obsolete
+        //         canvas.height = document.body.clientHeight; //document.height is obsolete
+        //         canvasW = canvas.width;
+        //         canvasH = canvas.height;
+        //         if( canvas.getContext )
+        //         {
+        //             setup();
+        //             setInterval( run , 33 );
+        //         }
+        //                 }
         </script>
     
        
      </head>
-        <body class="step1" >
+        <body class="step1"  >
                     <div class="container">
                         <div class="alert alert-danger"><strong>Oops!</strong> <span></span></div>
                         <div class="jumbotron">
@@ -50,11 +65,11 @@
                                        data-content="<img src='img/step1.png' />" data-html="true"></i>
                                 </p>
                                 
-                                <figure class="not-ready" >
+                                <figure class="not-ready"  >
                                     <video  id="camera-stream" width="1080" autoplay></video>
                                     <img id="snap">
-                                    <canvas id="yourCanvasID" width="1080" class="visible" ></canvas>
-                                    <canvas id="canvas2" width="1080" class="hidden"></canvas>
+                                    <canvas id="yourCanvasID" width="1080" height="1080" class="visible" ></canvas>
+                                    <canvas id="canvas2" width="1080" height="1080" class="hidden"></canvas>
                                 </figure>
                             </div>
                     </div>

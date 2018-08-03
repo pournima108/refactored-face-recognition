@@ -24,34 +24,25 @@ router.get('/', function(req, res) {
 
   router.post('/enroll',function(req, res) {
     var response = new methods().enrollfunction(req,res)
-    })   
+    })  //call enroll function 
  
   //Post the data 
   router.post('/upload',function(req, res) {
     // console.log("my body",req)
     var response = new methods().recognizeFunction(req,res)
-  })
+  })//call recognize function
 
   router.post('/detrain',function(req, res) {
     var response = new methods().detrainFunction(req,res)
-  })
+  })//call detrain function
 
   router.post('/response',function(req, res) {
     var response = new methods().giveResponse(req,res) 
-  })
-
-  router.post('/smsHandler',function(req, res) {
-    var response = new methods().smsHandler(req,res) 
-  })
-
-  router.post('/otpHandler',function(req, res) {
-    var response = new methods().otpHandler(req,res)
-  
-  })
+  })// call response function
 
   router.post('/fillData',function(req, res) {
     var response = new methods().fillUserData(req,res)
-  })
+  })//call filldata function
 
 
 
